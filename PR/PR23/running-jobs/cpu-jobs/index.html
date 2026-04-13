@@ -635,10 +635,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpu-partition-specs" class="md-nav__link">
+  <a href="#when-to-use-the-cpu-partition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CPU Partition Specs
+        When to Use the CPU Partition
       
     </span>
   </a>
@@ -646,10 +646,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-the-cpu-partition" class="md-nav__link">
+  <a href="#cpu-partition-specs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to Use the CPU Partition
+        CPU Partition Specs
       
     </span>
   </a>
@@ -966,10 +966,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpu-partition-specs" class="md-nav__link">
+  <a href="#when-to-use-the-cpu-partition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CPU Partition Specs
+        When to Use the CPU Partition
       
     </span>
   </a>
@@ -977,10 +977,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-the-cpu-partition" class="md-nav__link">
+  <a href="#cpu-partition-specs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to Use the CPU Partition
+        CPU Partition Specs
       
     </span>
   </a>
@@ -1060,6 +1060,17 @@
 
 <h1 id="cpu-jobs-for-data-analysis-and-processing">CPU Jobs for Data Analysis and Processing<a class="headerlink" href="#cpu-jobs-for-data-analysis-and-processing" title="Permanent link">&para;</a></h1>
 <p>The <code>cpu</code> partition provides high-memory nodes for data analysis, preprocessing, and workflow orchestration. These nodes do not have GPUs — use them for work that benefits from many CPU cores and large memory rather than GPU acceleration.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>AICR is not meant for CPU workloads. A small CPU-only partition is provided as a convenience for small data analysis tasks related to your GPU jobs. Heavy CPU workloads should be done on your home institution's cluster.</p>
+</div>
+<h2 id="when-to-use-the-cpu-partition">When to Use the CPU Partition<a class="headerlink" href="#when-to-use-the-cpu-partition" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Data preprocessing</strong>: cleaning, transforming, or merging large datasets before GPU training</li>
+<li><strong>Post-processing</strong>: aggregating results, generating reports, statistical analysis</li>
+<li><strong>Workflow orchestration</strong>: coordinating multi-step pipelines that launch GPU jobs</li>
+</ul>
+<p>For GPU-accelerated work (training, inference, anything using CUDA), use the <code>rtx-*</code> or <code>b200-*</code> partitions instead. See <a href="../gpu-jobs/">GPU Jobs</a> for more information.</p>
 <h2 id="cpu-partition-specs">CPU Partition Specs<a class="headerlink" href="#cpu-partition-specs" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1071,7 +1082,7 @@
 <tbody>
 <tr>
 <td>Nodes</td>
-<td>w-series (5 nodes)</td>
+<td>Intel w-series (5 nodes)</td>
 </tr>
 <tr>
 <td>Cores per node</td>
@@ -1095,18 +1106,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="when-to-use-the-cpu-partition">When to Use the CPU Partition<a class="headerlink" href="#when-to-use-the-cpu-partition" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Data preprocessing</strong>: cleaning, transforming, or merging large datasets before GPU training</li>
-<li><strong>Parallel analysis</strong>: running analysis in parallel across many cores with Dask, mpi4py, or GNU Parallel</li>
-<li><strong>Post-processing</strong>: aggregating results, generating reports, statistical analysis</li>
-<li><strong>Workflow orchestration</strong>: coordinating multi-step pipelines that launch GPU jobs</li>
-</ul>
-<p>For GPU-accelerated work (training, inference, anything using CUDA), use the <code>rtx-*</code> or <code>b200-*</code> partitions instead.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>AICR is not meant for CPU workloads. A small CPU-only partition is provided for small data analysis tasks related to your GPU jobs. Heavy CPU workloads should be done on your home institution's cluster.</p>
-</div>
 <h2 id="example-basic-cpu-job">Example: Basic CPU Job<a class="headerlink" href="#example-basic-cpu-job" title="Permanent link">&para;</a></h2>
 <p>The following is an example job script for a CPU job with 16 cores and 32GB of RAM.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
@@ -1123,82 +1122,11 @@
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>python<span class="w"> </span>analyze_data.py
 </span></code></pre></div>
-<!-- TODO: Probably don't need this, AICR is not the right place.
-
-## Parallel Analysis with Dask
-
-[Dask](https://dask.org/) scales Python data analysis (Pandas, NumPy, scikit-learn) across multiple cores or nodes. It is well-suited for the CPU partition's large-memory nodes.
-
-### Single-Node Dask
-
-For analysis that fits on one node but benefits from parallel processing:
-
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">#SBATCH --job-name=dask_analysis</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">#SBATCH --partition=cpu</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">#SBATCH --nodes=1</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">#SBATCH --cpus-per-task=64</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">#SBATCH --mem=512G</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">#SBATCH --time=04:00:00</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">#SBATCH --account=ACCOUNT_NAME</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">#SBATCH --output=%x-%j.out</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>module<span class="w"> </span>purge
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>module<span class="w"> </span>load<span class="w"> </span>python
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>python<span class="w"> </span>dask_analysis.py
-</span></code></pre></div>
-
-In your Python script:
-
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Use local cluster with allocated CPUs</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">threads_per_worker</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Read and process a large dataset in parallel</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;/scratch/USERNAME/data/large_dataset.parquet&quot;</span><span class="p">)</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">result</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/scratch/USERNAME/results/summary.csv&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-
-### Multi-Node Dask
-
-For datasets that exceed a single node's memory or processing capacity, see the [Parallel Data Analysis with Dask](../recipes/dask.md) recipe.
-
-## Parallel Analysis with mpi4py
-
-For MPI-based parallel analysis across CPU nodes:
-
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">#SBATCH --job-name=mpi_analysis</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">#SBATCH --partition=cpu</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">#SBATCH --nodes=2</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">#SBATCH --ntasks-per-node=16</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">#SBATCH --time=02:00:00</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">#SBATCH --account=ACCOUNT_NAME</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">#SBATCH --output=%x-%j.out</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>module<span class="w"> </span>purge
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>module<span class="w"> </span>load<span class="w"> </span>python
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>srun<span class="w"> </span>--mpi<span class="o">=</span>pmix<span class="w"> </span>python<span class="w"> </span>parallel_analysis.py
-</span></code></pre></div>
-
-!!! note
-    AICR uses PMIx for MPI process management. Always pass `--mpi=pmix` to `srun`.
-
--->
-
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../slurm-basics/">Slurm Basics</a> — general job submission</li>
+<li><a href="../gpu-jobs/">GPU Jobs</a> - running GPU jobs</li>
 </ul>
-<!-- TODO: Review
-- [Parallel Data Analysis with Dask](../recipes/dask.md) — detailed Dask recipe
-- [Working with Large Datasets](../ai-tools/large-datasets.md) — staging and I/O patterns
--->
 
 
 
@@ -1219,7 +1147,7 @@ For MPI-based parallel analysis across CPU nodes:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 13, 2026 19:05:19 UTC">April 13, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 13, 2026 20:25:52 UTC">April 13, 2026</span>
   </span>
 
     
