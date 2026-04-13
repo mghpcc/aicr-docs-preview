@@ -21,10 +21,6 @@
          <lastmod>2026-04-13</lastmod>
     </url>
     <url>
-         <loc>https://www.mghpcc.org/filesystem-overview/</loc>
-         <lastmod>2026-04-13</lastmod>
-    </url>
-    <url>
          <loc>https://www.mghpcc.org/getting-help/</loc>
          <lastmod>2026-04-13</lastmod>
     </url>
@@ -61,7 +57,11 @@
          <lastmod>2026-04-13</lastmod>
     </url>
     <url>
-         <loc>https://www.mghpcc.org/transferring-data/</loc>
+         <loc>https://www.mghpcc.org/filesystems-file-transfer/filesystem-overview/</loc>
+         <lastmod>2026-04-13</lastmod>
+    </url>
+    <url>
+         <loc>https://www.mghpcc.org/filesystems-file-transfer/transferring-data/</loc>
          <lastmod>2026-04-13</lastmod>
     </url>
     <url>
