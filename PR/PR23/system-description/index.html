@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#system-description" class="md-skip">
+        <a href="#aicr-system-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -289,6 +289,39 @@
     <span class="md-ellipsis">
       
         Hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnect
       
     </span>
   </a>
@@ -953,6 +986,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interconnect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -980,77 +1046,142 @@
 
 
 
-<h1 id="system-description">System Description<a class="headerlink" href="#system-description" title="Permanent link">&para;</a></h1>
-<p>An outline of the components which make up the AICR cluster.</p>
+<h1 id="aicr-system-overview">AICR System Overview<a class="headerlink" href="#aicr-system-overview" title="Permanent link">&para;</a></h1>
+<p>AICR is a GPU-focused AI computing cluster housed at the <a href="https://www.mghpcc.org/">MGHPCC</a> in Holyoke, MA. It serves researchers at Boston University, Harvard, MIT, Northeastern, UMass (five campuses), and Yale as part of the <a href="https://aihub.masstech.org/">Massachusetts AI Hub</a>.</p>
 <h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>NVIDIA GPU Nodes</th>
+<th>Component</th>
+<th>Count</th>
 <th>Details</th>
+<th>More Info</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>NVIDIA B200 GPU Nodes</td>
 <td>31</td>
-<td>8x B200 (Blackwell) Nodes</td>
-<td>248 B200 GPUs with InfiniBand connectivity</td>
+<td>8 B200 GPUs per node (248 total), 180 GB HBM3e per GPU, NVLink 5, liquid-cooled</td>
+<td><a href="hardware/b200-nodes.md">Details</a></td>
 </tr>
 <tr>
+<td>NVIDIA RTX PRO 6000 GPU Nodes</td>
 <td>19</td>
-<td>8x RTX6000 PRO (Blackwell) Nodes</td>
-<td>152 RTX6000 GPUs</td>
+<td>8 RTX PRO 6000 GPUs per node (152 total), 96 GB GDDR7 per GPU, PCIe Gen5</td>
+<td><a href="hardware/rtx-nodes.md">Details</a></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Service Nodes</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
+<td>Service Nodes</td>
 <td>32</td>
-<td>Dell R6715 Services nodes</td>
-<td>Provides login, Open OnDemand, Globus, Slurm, etc.</td>
+<td>Dell R6715, 128-core AMD EPYC 9745, 1.125 TB RAM, login/Slurm/OnDemand/Globus</td>
+<td><a href="hardware/service-nodes.md">Details</a></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>Storage</td>
+<td>~14.3 PiB effective</td>
+<td>VAST Data all-flash, 360 GB/s throughput, encryption at rest, GPU Direct Storage</td>
+<td><a href="hardware/storage.md">Details</a></td>
+</tr>
+<tr>
+<td>Networking</td>
+<td>4 fabrics</td>
+<td>Rail-optimized IB (B200 GPU), cluster IB (storage/MPI), Ethernet (management), OOB (control)</td>
+<td><a href="hardware/networking.md">Details</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="partitions">Partitions<a class="headerlink" href="#partitions" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Storage</th>
-<th>Details</th>
+<th>Partition</th>
+<th>Hardware</th>
+<th>GPUs/Node</th>
+<th>Max Time</th>
+<th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>15PB</td>
-<td>VAST Storage system</td>
-<td>Provides Home, Scratch, and Work space (See <a href="#">Filesystem Overview</a>)</td>
+<td><code>cpu</code></td>
+<td>w-series (128 cores, 1 TB)</td>
+<td>—</td>
+<td>24h</td>
+<td>Data analysis, workflow orchestration</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td><code>rtx-batch</code></td>
+<td>a-series</td>
+<td>8 RTX PRO 6000</td>
+<td>24h</td>
+<td>RTX GPU batch workloads</td>
+</tr>
+<tr>
+<td><code>rtx-devel</code></td>
+<td>a-series</td>
+<td>8 RTX PRO 6000</td>
+<td>4h</td>
+<td>Interactive GPU development</td>
+</tr>
+<tr>
+<td><code>b200-batch</code></td>
+<td>b-series</td>
+<td>8 B200</td>
+<td>24h</td>
+<td>B200 GPU batch workloads</td>
+</tr>
+<tr>
+<td><code>b200-devel</code></td>
+<td>b-series</td>
+<td>8 B200</td>
+<td>4h</td>
+<td>Interactive GPU development</td>
 </tr>
 </tbody>
 </table>
+<p>Default memory per CPU: 1 GB. Development partitions have a 4-concurrent-job limit per user.</p>
+<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Storage</th>
+<th>Path</th>
+<th>Quota</th>
+<th>Snapshots</th>
+<th>Purge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Home</td>
+<td><code>/home/USERNAME</code></td>
+<td>100 GiB</td>
+<td>7-day</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Scratch</td>
+<td><code>/scratch/USERNAME</code></td>
+<td>~10 TiB</td>
+<td>None</td>
+<td>Regular</td>
+</tr>
+<tr>
+<td>Work</td>
+<td><code>/work/INSTITUTION/PROJECT</code></td>
+<td>Varies</td>
+<td>7-day</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>AICR storage relies on snapshots only — there are no off-site backups. Back up irreplaceable data externally.</p>
+</div>
+<h2 id="interconnect">Interconnect<a class="headerlink" href="#interconnect" title="Permanent link">&para;</a></h2>
+<p>AICR nodes are connected by InfiniBand NDR400 (400 Gb/s) for high-bandwidth, low-latency communication between GPUs and storage. This enables fast distributed training across multiple GPU nodes and high-throughput access to the VAST storage system via NFS-RDMA.</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <p><a href="#">Slurm Basics/Running Jobs</a></p>
 <p><a href="#">Filesystem Overview</a></p>
@@ -1078,7 +1209,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 28, 2026 15:22:33 UTC">January 28, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 16, 2026 20:21:30 UTC">April 16, 2026</span>
   </span>
 
     

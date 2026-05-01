@@ -687,6 +687,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Fairshare and Priority">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slurm-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slurm Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1163,6 +1180,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Fairshare and Priority">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slurm-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slurm Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1236,8 +1270,8 @@
 <table>
 <thead>
 <tr>
-<th>Partition</th>
-<th>GPUs/Node</th>
+<th><div style="width:6em">Partition</div></th>
+<th>GPU Type</th>
 <th>Max Time</th>
 <th>Default Time</th>
 <th>Use Case</th>
@@ -1253,47 +1287,49 @@
 </tr>
 <tr>
 <td><code>rtx-batch</code></td>
-<td>8</td>
+<td>RTX Pro 6000</td>
 <td>24h</td>
 <td>1h</td>
 <td>RTX GPU batch jobs</td>
 </tr>
 <tr>
 <td><code>rtx-devel</code></td>
-<td>8</td>
+<td>RTX Pro 6000</td>
 <td>4h</td>
 <td>15 min</td>
 <td>RTX GPU interactive development and testing</td>
 </tr>
 <tr>
 <td><code>b200-batch</code></td>
-<td>8</td>
+<td>B200</td>
 <td>24h</td>
 <td>1h</td>
 <td>B200 GPU batch jobs</td>
 </tr>
 <tr>
 <td><code>b200-devel</code></td>
-<td>8</td>
+<td>B200</td>
 <td>4h</td>
 <td>15 min</td>
 <td>B200 GPU interactive development and testing</td>
 </tr>
 </tbody>
 </table>
-<p>Default memory: 1 GB per CPU. Development (devel) partitions limited to 4 concurrent jobs per user. For GPU hardware details, see <a href="../gpu/overview.md">GPU Overview</a>.</p>
+<p>Default memory: 1 GB per CPU. Development (devel) partitions limited to 4 concurrent jobs per user. For GPU hardware details, see <a href="../../system-description/">System Description</a>.</p>
 <p>To see the partitions on AICR, run the <code>sinfo</code> command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>sinfo
 </span></code></pre></div>
 <p>The <code>sinfo</code> command will tell you the names of the partitions, what their time limits are, how many nodes are in each state, and the names of the nodes in the partitions.</p>
 <h2 id="checking-available-resources">Checking Available Resources<a class="headerlink" href="#checking-available-resources" title="Permanent link">&para;</a></h2>
 <p>To see what resources are available run <code>sinfo</code>. The <code>sinfo</code> command will show how many nodes are in each state. Nodes in "idle" state have all cores available, nodes in "mix" state have some cores available, and nodes in "alloc" state have no cores or other resources available.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sinfo -p mit_normal
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>PARTITION  AVAIL  TIMELIMIT  NODES  STATE  NODELIST
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>mit_normal    up   12:00:00      2   resv  node[2704-2705]
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>mit_normal    up   12:00:00      1   mix   node1707
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>mit_normal    up   12:00:00      1   alloc node1708
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>mit_normal    up   12:00:00     29   idle  node[1600-1625,1706,1806-1807]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>PARTITION    AVAIL  TIMELIMIT  NODES  STATE NODELIST
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cpu             up 1-00:00:00      1    mix w0001
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cpu             up 1-00:00:00      4   idle w[0002-0005]
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>rtx-batch       up 1-00:00:00     17   idle a[0001-0017]
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>b200-batch      up 1-00:00:00     28   idle b[0001-0023,0026-0028]
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>rtx-devel       up    4:00:00      1    mix a0018
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>rtx-devel       up    4:00:00      1   idle a0019
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>b200-devel      up    4:00:00      3   idle b[0029-0031]
 </span></code></pre></div>
 <p>Common node states are:</p>
 <ul>
@@ -1301,75 +1337,75 @@
 <li><code>mix</code>: nodes that have some, but not all, resources allocated</li>
 <li><code>alloc</code>: nodes that are fully allocated</li>
 <li><code>resv</code>: nodes that are reserved and only available to people in their reservation</li>
-<li><code>drained</code>: nodes that are unavailable for use per system administrator request, usually for maintenance purposes. It is shown as <code>drain*</code> due to the default 5-column limit.</li>
-<li><code>drng</code>: nodes that are currently allocated a job, but will not be allocated additional jobs. The node state will be changed to state drained when the last job on it completes. </li>
-<li><code>down</code>: nodes that are unavailable for use. </li>
+<li><code>drained</code>: nodes that are unavailable for use per system administrator request, usually for maintenance purposes, shown as <code>drain*</code> due to the default 5-column limit</li>
+<li><code>drng</code>: nodes that are currently allocated a job, but will not be allocated additional jobs; node state will be changed to state <code>drained</code> when the last job on it completes</li>
+<li><code>down</code>: nodes that are unavailable for use</li>
 <li><code>plnd</code>: nodes that are planned by the backfill scheduler for a higher priority job</li>
 </ul>
 <p>You can also use <code>sinfo</code> to see what resources each node has. For example, to see what node types are in the <code>rtx-devel</code> and <code>b200-devel</code> partitions, run the command:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sinfo -p rtx-devel,b200-devel -O Partition,Nodes,CPUs,Memory,Gres -e
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sinfo -O Partition,Nodes,CPUs,Memory,Gres -e
 </span></code></pre></div>
 <p>In the output you'll see a summary of how many nodes of each configuration is in the partition. You can include multiple partitions by providing a comma separated list to the <code>-p</code> flag. The output shows the partition, number of nodes, number of CPUs, amount of Memory (in MB), and any GPUs available on the node:</p>
-<!-- TODO: Replace with AICR numbers -->
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>PARTITION       NODES       CPUS        MEMORY          GRES                
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>cpu             5           128         1159937         (null)              
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>rtx-batch       17          128         2321503         gpu:rtx6000:8       
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>b200-batch      28          128         2321503         gpu:b200:8          
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>rtx-devel       2           128         2321503         gpu:rtx6000:8       
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>b200-devel      3           128         2321503         gpu:b200:8  
+</span></code></pre></div>
 <h2 id="running-jobs">Running Jobs<a class="headerlink" href="#running-jobs" title="Permanent link">&para;</a></h2>
 <p>How you run your job depends on the type of job you would like to run. There are two "modes" for running jobs: interactive and batch jobs. Interactive jobs allow you to run interactively on a compute node in a shell. Batch jobs, on the other hand, are for running a pre-written script or executable. Interactive jobs are mainly used for testing, debugging, and interactive data analysis. Batch jobs are the traditional jobs you see on an HPC system and should be used when you want to run a script that doesn't require that you interact with it.</p>
 <h3 id="job-flags">Job Flags<a class="headerlink" href="#job-flags" title="Permanent link">&para;</a></h3>
 <p>When you start any type of job you specify what resources you need for your job, including cores, memory, GPUs, and other features. You also specify which <a href="#partitions">partition</a> you would like your job to run on. If you don't specify any of these you will get the default resources: 1 core, a small amount of memory, no GPUs, and it will run on the current default partition. See the page on <a href="requesting-resources.md">Requesting Resources</a> for the flags to use to request different types of resources.</p>
 <h3 id="interactive-jobs">Interactive Jobs<a class="headerlink" href="#interactive-jobs" title="Permanent link">&para;</a></h3>
 <p>The basic command for requesting an interactive job on the <code>rtx-devel</code> partition is:</p>
-<div class="language-batch highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>salloc --partition=rtx-devel --gpus=1 --cpus-per-task=4 --mem=16G --time=01:00:00 --account=ACCOUNT_NAME
+<div class="language-batch highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>salloc --partition=rtx-devel --gpus=1 --cpus-per-task=4 --mem=16G --time=01:00:00 --qos=interactive
 </span></code></pre></div>
-<p>The <code>--partition=rtx-devel</code> is a flag that is passed to the scheduler, <code>--partition</code> specifies the partition. This command will allocate 4 cores, one GPU, and 16GB of RAM on a node in the <code>rtx-devel</code> partition for one hour. Since this is the <code>rtx-devel</code> you will get an RTX Pro 6000 GPU.</p>
+<!-- TODO: Check that this qos works -->
+
+<p>The <code>--partition=rtx-devel</code> is a flag that is passed to the scheduler, <code>--partition</code> specifies the partition. This command will allocate 4 cores (<code>--cpus-per-task</code>), one GPU (<code>--gpus</code>), and 16GB of RAM (<code>--mem</code>) on a node in the <code>rtx-devel</code> partition for one hour. The <code>--qos</code> flag specifies that this is an interactive job. Since this is the <code>rtx-devel</code> you will get an RTX Pro 6000 GPU.</p>
 <p>We set aside a certain number of nodes specifically for interactive jobs in each of the "devel" partitions.</p>
 <p>For example:</p>
 <!-- TODO: Replace with AICR example -->
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">[</span>user01@orcd-login001<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>-p<span class="w"> </span>rtx-devel<span class="w"> </span>-G<span class="w"> </span><span class="m">1</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>salloc:<span class="w"> </span>Pending<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">60159437</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">60159437</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">60159437</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>allocated<span class="w"> </span>resources
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>salloc:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">60159437</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>salloc:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resource<span class="w"> </span>configuration
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>salloc:<span class="w"> </span>Nodes<span class="w"> </span>node1806<span class="w"> </span>are<span class="w"> </span>ready<span class="w"> </span><span class="k">for</span><span class="w"> </span>job
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="o">[</span>user01@node1806<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">[</span>user01@login0001<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>salloc<span class="w"> </span>--partition<span class="o">=</span>rtx-devel<span class="w"> </span>--gpus<span class="o">=</span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w"> </span>--mem<span class="o">=</span>16G<span class="w"> </span>--time<span class="o">=</span><span class="m">01</span>:00:00<span class="w"> </span>--qos<span class="o">=</span>interactive
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>salloc:<span class="w"> </span>Pending<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">60159437</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">60159437</span><span class="w"> </span>queued<span class="w"> </span>and<span class="w"> </span>waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resources
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>salloc:<span class="w"> </span>job<span class="w"> </span><span class="m">60159437</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>allocated<span class="w"> </span>resources
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>salloc:<span class="w"> </span>Granted<span class="w"> </span>job<span class="w"> </span>allocation<span class="w"> </span><span class="m">60159437</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>salloc:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>resource<span class="w"> </span>configuration
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>salloc:<span class="w"> </span>Nodes<span class="w"> </span>a0001<span class="w"> </span>are<span class="w"> </span>ready<span class="w"> </span><span class="k">for</span><span class="w"> </span>job
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="o">[</span>user01@a0001<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>
 </span></code></pre></div>
-<p>Notice how the command prompt changes from <code>[user01@orcd-login001 ~]$</code> to <code>[user01@node1806 ~]$</code>. This indicates that <code>user01</code> has started an interactive job on <code>node1806</code> and any commands issued will run on this node.</p>
-<!-- TODO: Replace with AICR hostnames -->
-
+<p>Notice how the command prompt changes from <code>[user01@login0001 ~]$</code> to <code>[user01@a0001 ~]$</code>. This indicates that <code>user01</code> has started an interactive job on <code>a0001</code> and any commands issued will run on this node.</p>
 <h3 id="submitting-a-batch-job">Submitting a Batch Job<a class="headerlink" href="#submitting-a-batch-job" title="Permanent link">&para;</a></h3>
 <p>Batch jobs are used to run pre-written scripts or run commands that do not need input from you throughout the run. The first step to running a batch job is to write a job script. Job scripts can be "launched" with the <code>sbatch</code> command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sbatch<span class="w"> </span>myscript.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sbatch<span class="w"> </span>myscript.sh
 </span></code></pre></div>
 <p>When you run this command the scheduler will look for the resources requested in the script, allocate those resources to your job, run your script on those resources, and then release those resources once your script completes or the time limit is reached.</p>
 <p>Here is an example job script that uses Python to train a model:</p>
-<!-- TODO: Verify Batch Job fields (is account required?) -->
-
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">#SBATCH --job-name=my_analysis       # name for identification</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">#SBATCH --partition=rtx-batch        # which partition</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">#SBATCH --nodes=1                    # number of nodes</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">#SBATCH --ntasks=1                   # number of tasks (processes)</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1">#SBATCH --cpus-per-task=4            # CPU cores per task</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">#SBATCH --gpus=1                     # number of GPUs</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">#SBATCH --mem=16G                    # memory</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1">#SBATCH --time=04:00:00              # max wall time (HH:MM:SS)</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1">#SBATCH --account=ACCOUNT_NAME       # institution account (required)</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1">#SBATCH --output=%x-%j.out           # stdout file</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>module<span class="w"> </span>load<span class="w"> </span>minforge
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>module<span class="w"> </span>load<span class="w"> </span>cuda
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>python<span class="w"> </span>train.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">#SBATCH --job-name=my_analysis       # name for identification</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">#SBATCH --partition=rtx-batch        # which partition</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">#SBATCH --cpus-per-task=4            # CPU cores per task</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">#SBATCH --gpus=1                     # number of GPUs</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1">#SBATCH --mem=16G                    # memory</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">#SBATCH --time=04:00:00              # max wall time (HH:MM:SS)</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1">#SBATCH --output=%x-%j.out           # stdout file</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>module<span class="w"> </span>load<span class="w"> </span>minforge3
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>module<span class="w"> </span>load<span class="w"> </span>cuda
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>python<span class="w"> </span>train.py
 </span></code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Always specify <code>--account</code>. Valid accounts: <code>bu</code>, <code>hu</code>, <code>mit</code>, <code>neu</code>, <code>umass</code>, <code>uml</code>, <code>umb</code>, <code>umassd</code>, <code>umassmed</code>, <code>yale</code>, <code>ma</code>, <code>aihub</code>.</p>
+<p class="admonition-title">AICR Slurm Accounts</p>
+<p>Slurm accounts are a way to associate a user's usage to a project. Everyone has a default account associated with their primary project. If you are part of multiple projects you can switch the account by using the <code>--account</code> flag.</p>
 </div>
-<p>This script requests the same resources as the <a href="#interactive-jobs">interactive job above</a>: 1 cpu core on the <code>rtx-batch</code> partition. The <code>#SBATCH -p rtx-batch</code> may look like a comment but it is not, it is a directive to the scheduler to run with the specified flags. Note that this is the same flag used in the <a href="#interactive-jobs">interactive job example above</a>. It then sets up the job environment to use python with the <code>miniforge</code> and <code>cuda</code> modules, and then runs a python script. In general, the same steps and commands you would use to run your job in an interactive job you can put in your job script.</p>
+<p>This script requests the same resources as the <a href="#interactive-jobs">interactive job above</a>: 4 cpu core on the <code>rtx-batch</code> partition. The <code>#SBATCH --partition rtx-batch</code> may look like a comment but it is not, it is a directive to the scheduler to run with the specified flags. Note that this is the same flag used in the <a href="#interactive-jobs">interactive job example above</a>. It then sets up the job environment to use python with the <code>miniforge3</code> and <code>cuda</code> modules, and then runs a python script. In general, the same steps and commands you would use to run your job in an interactive job you can put in your job script.</p>
 <p>You can think of job scripts as having three sections:</p>
 <ol>
-<li>Scheduler/Job flags: This is where you request your resources using Slurm flags.</li>
+<li>Scheduler/Job flags: This is where you request your resources using Slurm flags. See a list of flags below in <a href="#common-job-flags">Common Job Flags</a>.</li>
 <li>Set up your environment: Load any modules you need, set environment variables, etc. It is better to set this in your job scripts to ensure consistent environments across jobs. We don't recommend putting these commands in your <code>.bashrc</code> or running them at the command line before you launch your job.</li>
 <li>Run your code or application as you would from the command line.</li>
 </ol>
@@ -1432,8 +1468,8 @@
 <tr>
 <td><a href="https://slurm.schedmd.com/sbatch.html#OPT_account"><code>--account</code></a></td>
 <td><code>-A</code></td>
-<td>Institution account</td>
-<td><code>--account=mit</code></td>
+<td>Project account</td>
+<td><code>--account=proj1_mit</code></td>
 </tr>
 <tr>
 <td><a href="https://slurm.schedmd.com/sbatch.html#OPT_nodes"><code>--nodes</code></a></td>
@@ -1523,6 +1559,15 @@
 </table>
 <h2 id="fairshare-and-priority">Fairshare and Priority<a class="headerlink" href="#fairshare-and-priority" title="Permanent link">&para;</a></h2>
 <p>AICR allocates resources fairly using a three-level hierarchy: <strong>Institution → Project → User</strong>. All institutions have equal shares. Your priority depends on recent usage relative to your institution's and project's allocation. Specify <code>--account</code> correctly and Slurm handles the rest.</p>
+<h3 id="slurm-accounts">Slurm Accounts<a class="headerlink" href="#slurm-accounts" title="Permanent link">&para;</a></h3>
+<p>Slurm accounts are a way to associate a user's usage to a project. Everyone on AICR has a default account associated with their primary project. If you are part of multiple projects you may have multiple Slurm accounts.</p>
+<p>You can see your default account with the command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sacctmgr show user $USER -p
+</span></code></pre></div>
+<p>To see all of the Slurm accounts that you have access to run on, run:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sacctmgr show user $USER withassoc format=user,account -p
+</span></code></pre></div>
+<p>When you run a job think about what project that job is for, and specify the account for that project. This ensures your usage is accounted for in the correct project if you are on multiple projects.</p>
 <h2 id="slurm-environment-variables">Slurm Environment Variables<a class="headerlink" href="#slurm-environment-variables" title="Permanent link">&para;</a></h2>
 <p>Slurm keeps track of job parameters in environment variables, which can sometimes be useful. Inside a running job:</p>
 <table>
@@ -1601,7 +1646,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 13, 2026 19:14:34 UTC">April 13, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2026 15:19:01 UTC">May 1, 2026</span>
   </span>
 
     
