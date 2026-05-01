@@ -1147,22 +1147,22 @@
 <h1 id="monitoring-and-managing-jobs">Monitoring and Managing Jobs<a class="headerlink" href="#monitoring-and-managing-jobs" title="Permanent link">&para;</a></h1>
 <h2 id="check-your-jobs">Check Your Jobs<a class="headerlink" href="#check-your-jobs" title="Permanent link">&para;</a></h2>
 <p>View your running and pending jobs:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>squeue<span class="w"> </span>--me
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>squeue<span class="w"> </span>--me
 </span></code></pre></div>
 <p>View jobs on a specific partition:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>squeue<span class="w"> </span>-p<span class="w"> </span>rtx-batch
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>squeue<span class="w"> </span>-p<span class="w"> </span>rtx-batch
 </span></code></pre></div>
 <h2 id="detailed-job-information">Detailed Job Information<a class="headerlink" href="#detailed-job-information" title="Permanent link">&para;</a></h2>
 <p>Inspect a running or pending job:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>JOBID
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>JOBID
 </span></code></pre></div>
 <p>This shows the full job configuration: allocated nodes, resources, time limits, working directory, and more.</p>
 <h2 id="job-history-and-resource-usage">Job History and Resource Usage<a class="headerlink" href="#job-history-and-resource-usage" title="Permanent link">&para;</a></h2>
 <p>After a job completes, use <code>sacct</code> to see what resources it actually used:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>sacct<span class="w"> </span>-j<span class="w"> </span>JOBID<span class="w"> </span>--format<span class="o">=</span>JobID,JobName,Partition,Elapsed,MaxRSS,State
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sacct<span class="w"> </span>-j<span class="w"> </span>JOBID<span class="w"> </span>--format<span class="o">=</span>JobID,JobName,Partition,Elapsed,MaxRSS,State
 </span></code></pre></div>
 <p>Check your recent job history:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>sacct<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>--starttime<span class="o">=</span>now-7days<span class="w"> </span>--format<span class="o">=</span>JobID,JobName,Partition,Elapsed,State,ExitCode
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sacct<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>--starttime<span class="o">=</span>now-7days<span class="w"> </span>--format<span class="o">=</span>JobID,JobName,Partition,Elapsed,State,ExitCode
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1216,25 +1216,25 @@
 </tbody>
 </table>
 <h2 id="partition-and-node-status">Partition and Node Status<a class="headerlink" href="#partition-and-node-status" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>sinfo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sinfo
 </span></code></pre></div>
 <p>See which nodes are available, allocated, or down. Useful for checking whether your target partition has capacity.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>sinfo<span class="w"> </span>-p<span class="w"> </span>rtx-batch<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%N %T %G %m&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sinfo<span class="w"> </span>-p<span class="w"> </span>rtx-batch<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%N %T %G %m&quot;</span>
 </span></code></pre></div>
 <p>This shows node names, state, GPUs, and memory for a specific partition.</p>
 <h2 id="cancel-a-job">Cancel a Job<a class="headerlink" href="#cancel-a-job" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>scancel<span class="w"> </span>JOBID
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>scancel<span class="w"> </span>JOBID
 </span></code></pre></div>
 <p>Cancel all your jobs:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>scancel<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>scancel<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
 </span></code></pre></div>
 <p>Cancel a specific array task:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>scancel<span class="w"> </span>JOBID_TASKID
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>scancel<span class="w"> </span>JOBID_TASKID
 </span></code></pre></div>
 <h2 id="checking-gpu-utilization-in-a-running-job">Checking GPU Utilization in a Running Job<a class="headerlink" href="#checking-gpu-utilization-in-a-running-job" title="Permanent link">&para;</a></h2>
 <p>If you have a running GPU job, check GPU utilization by connecting to the node:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>squeue<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w">                    </span><span class="c1"># find your node name</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>ssh<span class="w"> </span>NODE_NAME<span class="w"> </span>nvidia-smi<span class="w">           </span><span class="c1"># check GPU usage (requires active job on that node)</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>squeue<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w">                    </span><span class="c1"># find your node name</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ssh<span class="w"> </span>NODE_NAME<span class="w"> </span>nvidia-smi<span class="w">           </span><span class="c1"># check GPU usage (requires active job on that node)</span>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1275,7 +1275,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2026 15:46:40 UTC">May 1, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2026 15:54:10 UTC">May 1, 2026</span>
   </span>
 
     
