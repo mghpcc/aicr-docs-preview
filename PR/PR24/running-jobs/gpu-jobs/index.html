@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://www.mghpcc.org/files/overview/">
+        <link rel="canonical" href="https://www.mghpcc.org/running-jobs/gpu-jobs/">
       
       
-        <link rel="prev" href="../../logging-in/">
+        <link rel="prev" href="../slurm-basics/">
       
       
-        <link rel="next" href="../transferring-data/">
+        <link rel="next" href="../cpu-jobs/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Overview - AICR Documentation</title>
+        <title>GPU Jobs - AICR Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#filesystem-overview" class="md-skip">
+        <a href="#gpu-jobs" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              GPU Jobs
             
           </span>
         </div>
@@ -380,20 +380,20 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -414,7 +414,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -429,19 +429,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../files/overview/" class="md-nav__link">
         
   
   
@@ -457,7 +448,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -470,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transferring-data/" class="md-nav__link">
+      <a href="../../files/transferring-data/" class="md-nav__link">
         
   
   
@@ -529,20 +519,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -563,7 +553,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -581,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../running-jobs/slurm-basics/" class="md-nav__link">
+      <a href="../slurm-basics/" class="md-nav__link">
         
   
   
@@ -606,10 +596,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../running-jobs/gpu-jobs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Jobs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -625,6 +642,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a Partition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requesting GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-gpu-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-GPU Job
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-gpu-job-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-GPU Job (Single Node)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-gpu-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying GPU Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-memory-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU Memory Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -637,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../running-jobs/cpu-jobs/" class="md-nav__link">
+      <a href="../cpu-jobs/" class="md-nav__link">
         
   
   
@@ -665,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../running-jobs/monitoring/" class="md-nav__link">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -932,6 +1046,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a Partition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requesting GPUs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-gpu-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-GPU Job
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-gpu-job-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-GPU Job (Single Node)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-gpu-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying GPU Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-memory-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU Memory Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -973,10 +1172,10 @@
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../slurm-basics/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Files and Filesystem
+    Running Jobs
   </span>
 
         </a>
@@ -993,55 +1192,158 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:gpu" class="md-tag">GPU</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:running-jobs" class="md-tag">Running Jobs</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:slurm" class="md-tag">Slurm</a>
+      
+    
+  </nav>
 
 
-<h1 id="filesystem-overview">Filesystem Overview<a class="headerlink" href="#filesystem-overview" title="Permanent link">&para;</a></h1>
-<p>AICR Storage is separated into two categories: User storage and Project storage. Each user has both a <strong>Home</strong> and <strong>Scratch</strong> directory, and each Project has a shared <strong>Work</strong> directory. Each of these have a different purpose, size, and characteristics. All AICR storage is fast flash storage.</p>
-<p>AICR storage is meant to meant to be ephemeral. Data should only exist on AICR when it is needed for active compute projects.</p>
-<ul>
-<li><strong>Home</strong>: Your Home Directory is meant for your most important files, has snapshots. We recommend keeping your software and code in your home directory.</li>
-<li><strong>Scratch</strong>: Scratch space is meant for data used in actively running jobs. Scratch is meant for temporary files and has a 30-day retention policy. Files older than 30 days will be purged. Scratch is <strong>not backed up</strong> and <strong>does not have snapshots</strong> should not be used for long term storage.</li>
-<li><strong>Work</strong>: Work is shared project space where the bulk of your project data should live. This storage is longer-term than Scratch, but should be cleared up at the end of the project lifecycle. Work also has snapshots. Each individual institution has its own process for determining the size of the Work space for each project.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">AICR Storage is not Backed up</p>
-<p>All storage on AICR is <strong>not backed up</strong> outside of snapshots in Home and Work. Any files that cannot be easily replaced should be backed up outside of AICR.</p>
-</div>
-<p>See the table below for a description of each storage space.</p>
+
+<h1 id="gpu-jobs">GPU Jobs<a class="headerlink" href="#gpu-jobs" title="Permanent link">&para;</a></h1>
+<p>AICR's primary resource is its GPUs. This page covers how to request GPUs, choose the right partition, and submit GPU jobs. <!-- TODO: Adding later For GPU hardware details, see <a href="../gpu/overview.md">GPU Overview</a>.--></p>
+<h2 id="choosing-a-partition">Choosing a Partition<a class="headerlink" href="#choosing-a-partition" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Storage Type</th>
-<th><div style="width:18em">Path</div></th>
-<th>Quota</th>
-<th>Backed up</th>
-<th>Purpose/Notes</th>
+<th>Partition</th>
+<th>GPU Model</th>
+<th>GPUs/Node</th>
+<th>Max Time</th>
+<th>Best For</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Home Directory</td>
-<td><code>/home/&lt;username&gt;</code></td>
-<td>100 GB</td>
-<td>7 Day Snapshots</td>
-<td>Use for important files and software</td>
+<td><code>rtx-batch</code></td>
+<td>RTX PRO 6000</td>
+<td>8</td>
+<td>24h</td>
+<td>Production GPU workloads</td>
 </tr>
 <tr>
-<td>Scratch</td>
-<td><code>/scratch/&lt;username&gt;/</code></td>
-<td>10 TB</td>
-<td><strong>No Snapshots</strong></td>
-<td>Scratch space for temporary files</td>
+<td><code>rtx-devel</code></td>
+<td>RTX PRO 6000</td>
+<td>8</td>
+<td>4h</td>
+<td>Testing and debugging</td>
 </tr>
 <tr>
-<td>Work</td>
-<td><code>/scratch/&lt;username&gt;/</code></td>
-<td>Varies</td>
-<td>7 Day Snapshots</td>
-<td>Shared project space</td>
+<td><code>b200-batch</code></td>
+<td>B200</td>
+<td>8</td>
+<td>24h</td>
+<td>Large-scale AI/ML training</td>
+</tr>
+<tr>
+<td><code>b200-devel</code></td>
+<td>B200</td>
+<td>8</td>
+<td>4h</td>
+<td>Testing and debugging</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code>devel</code> partitions for testing — they have shorter queue times. Switch to <code>batch</code> for production runs.</p>
+</div>
+<h2 id="requesting-gpus">Requesting GPUs<a class="headerlink" href="#requesting-gpus" title="Permanent link">&para;</a></h2>
+<p>The simplest way to request GPUs:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">#SBATCH --gpus=1                    # one GPU (any type on the partition)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">#SBATCH --gpus=4                    # four GPUs</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">#SBATCH --gpus-per-node=8           # all 8 GPUs on a node</span>
+</span></code></pre></div>
+<p>Your partition will specify the GPU type:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">#SBATCH --gpus=4               # 4  GPUs</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">#SBATCH --partition=rtx-devel  # The rtx-devel partition has RTX Pro 6000 GPUs</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Partitions on AICR are homogenous, meaning node configurations are identical within a partition, including the GPU type. Since you include the partition in your job script you do not need to specify the GPU type.</p>
+</div>
+<h2 id="single-gpu-job">Single-GPU Job<a class="headerlink" href="#single-gpu-job" title="Permanent link">&para;</a></h2>
+<p>The following script requests one GPU, 8 CPUs, and 32GB of RAM for 8 hours in the <code>rtx-batch</code> partition. Since the job is in <code>rtx-batch</code>, this job will get an RTX Pro 6000 GPU.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">#SBATCH --job-name=single_gpu</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">#SBATCH --partition=rtx-batch</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">#SBATCH --gpus=1</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">#SBATCH --cpus-per-task=8</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">#SBATCH --mem=32G</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">#SBATCH --time=08:00:00</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">#SBATCH --account=ACCOUNT_NAME</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">#SBATCH --output=%x-%j.out</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>module<span class="w"> </span>load<span class="w"> </span>miniforge
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>module<span class="w"> </span>load<span class="w"> </span>cuda
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>python<span class="w"> </span>train.py
+</span></code></pre></div>
+<h2 id="multi-gpu-job-single-node">Multi-GPU Job (Single Node)<a class="headerlink" href="#multi-gpu-job-single-node" title="Permanent link">&para;</a></h2>
+<p>The following script request multiple GPUs (4) on one node in the <code>b200-batch</code> partition. It is also asking for 32 CPUs, 128GB of CPU memory, and 12 hours. Since the job is in <code>b200-batch</code>, this job will get 4 B200 GPUs.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">#SBATCH --job-name=multi_gpu</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">#SBATCH --partition=b200-batch</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">#SBATCH --nodes=1</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">#SBATCH --gpus-per-node=4</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">#SBATCH --cpus-per-task=32</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">#SBATCH --mem=128G</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">#SBATCH --time=12:00:00</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">#SBATCH --account=ACCOUNT_NAME</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">#SBATCH --output=%x-%j.out</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>module<span class="w"> </span>load<span class="w"> </span>miniforge
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>module<span class="w"> </span>load<span class="w"> </span>cuda
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>torchrun<span class="w"> </span>--nproc_per_node<span class="o">=</span><span class="m">4</span><span class="w"> </span>train.py
+</span></code></pre></div>
+<!-- TODO: Add when pages exist: For multi-node GPU jobs (distributed training across nodes), see [Distributed Training](../ai-tools/distributed-training.md) and [Multi-GPU Computing](../gpu/multi-gpu.md). -->
+
+<h2 id="verifying-gpu-access">Verifying GPU Access<a class="headerlink" href="#verifying-gpu-access" title="Permanent link">&para;</a></h2>
+<p>Inside a running job, check that GPUs are visible with:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>nvidia-smi
+</span></code></pre></div>
+<p>This shows GPU model, memory, utilization, and temperature. If no GPUs appear, verify that you requested them with <code>--gpus</code> and submitted to a GPU partition.</p>
+<p>For PyTorch:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>       <span class="c1"># should print True</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">())</span>       <span class="c1"># should match requested GPUs</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>   <span class="c1"># GPU model name</span>
+</span></code></pre></div>
+<h2 id="gpu-memory-considerations">GPU Memory Considerations<a class="headerlink" href="#gpu-memory-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>RTX PRO 6000 and B200 GPUs each have substantial memory, but large models or large batch sizes can still cause out-of-memory (OOM) errors</li>
+<li>If you encounter OOM: reduce batch size, enable mixed precision (<code>torch.amp</code>), or use gradient checkpointing</li>
+<li>Monitor GPU memory usage with <code>nvidia-smi</code> during interactive sessions to right-size your requests</li>
+</ul>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<!-- TODO Adding Later
+- [GPU Overview](../gpu/overview.md) — hardware specs and architecture
+- [Multi-GPU Computing](../gpu/multi-gpu.md) — NCCL and GPU-to-GPU communication
+- [Distributed Training](../ai-tools/distributed-training.md) — scaling beyond one node
+ -->
+<ul>
+<li><a href="../slurm-basics/">Slurm Basics</a> — general job submission</li>
+</ul>
 
 
 
@@ -1062,7 +1364,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 27, 2026 21:28:54 UTC">March 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2026 18:14:56 UTC">May 1, 2026</span>
   </span>
 
     
