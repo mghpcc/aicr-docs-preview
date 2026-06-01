@@ -1335,18 +1335,14 @@ convenient reference to get started.</p>
 <p>AICR is currently available to initial beta-test users. Each institution may have its own process for getting an account. When it is available we will include links to that information here.</p>
 <h2 id="logging-in">Logging In<a class="headerlink" href="#logging-in" title="Permanent link">&para;</a></h2>
 <p>The first thing you should do when you get a new account is verify that
-you can log in. You can log in using either the AICR OnDemand portal or through SSH in the terminal. See the <a href="../logging-in/">Logging In</a> page for more details.</p>
+you can log in. You can log in using either the <a href="../connecting/ondemand/">AICR OnDemand portal</a> or through <a href="../logging-in/">SSH in the terminal</a>.</p>
 <h3 id="ondemand-portal">OnDemand Portal<a class="headerlink" href="#ondemand-portal" title="Permanent link">&para;</a></h3>
-<p>You can log into OnDemand Web Portal using your institutional credentials. Once the OnDemand Portal is available we will put the URL here.</p>
-<!-- TODO: Add OnDemand URL -->
-
+<p>You can log into OnDemand Web Portal using your institutional credentials. Access AICR OnDemand through: <a href="https://ood.aicr.ai">https://ood.aicr.ai</a>.</p>
 <h3 id="terminal-with-ssh">Terminal with SSH<a class="headerlink" href="#terminal-with-ssh" title="Permanent link">&para;</a></h3>
-<p>Log into AICR with the following command in a terminal window. Replace <code>USERNAME</code> below with your AICR username.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>USERNAME@<span class="o">[</span>aicr-login-hostname<span class="o">]</span>
+<p>Log into AICR with the following command in a terminal window. See the <a href="../logging-in/">SSH Login page</a> for how to set up SSH access. Once you have set up your SSH keys as instructed, you can log in with the following command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>USERNAME@login.aicr.ai
 </span></code></pre></div>
-<!-- TODO: Update with Login node hostname -->
-
-<p>Your AICR username is similar to but not the same as your institutional username. It would have been given to you when your account was created. If you are prompted for a password enter your institutional password.</p>
+<p>Replace <code>USERNAME</code> above with your AICR username. Your AICR username is similar to but not the same as your institutional username. It was given to you when your account was created.</p>
 <h2 id="shared-hpc-clusters">Shared HPC Clusters<a class="headerlink" href="#shared-hpc-clusters" title="Permanent link">&para;</a></h2>
 <p>AICR is a shared HPC cluster. You are sharing this
 resources with a number of other researchers, staff, and students, so it
@@ -1474,25 +1470,19 @@ text, but you can try it out yourself and watch the short demonstration
 </details>
 <h2 id="transferring-files">Transferring Files<a class="headerlink" href="#transferring-files" title="Permanent link">&para;</a></h2>
 <p>One of the first tasks is to get your code, data, and any other files
-you need into your home directory on the system. Review the <a href="transferring-data.md">Transferring Data</a> page for a full description of how to move data on and off AICR.</p>
+you need into your home directory on the system. Review the <a href="../files/transferring-data/">Transferring Data</a> page for a full description of how to move data on and off AICR.</p>
 <p>If your code is in github you can use git commands on the system to clone your repository
 to your home directory. The primary method we recommend for copying your files to and from AICR is through <a href="https://www.globus.org/">Globus</a>. You can also transfer your files from your computer using the OnDemand File Browser or by using the commands <code>scp</code> or <code>rsync</code>.</p>
 <p>You can use <code>scp</code> or <code>rsync</code> from the command line on your local computer. Both commands work similarly to the <code>cp</code> command, following the pattern <code>&lt;command&gt; &lt;source&gt; &lt;destination&gt;</code>, the only difference being that you will need to include the hostname of the system you are transferring to or from. For this reason you <em>must</em> run this command from the terminal on your computer <em>before you've logged in</em>.</p>
 <p>To transfer a file from your computer to AICR:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scp<span class="w"> </span>&lt;local-file-name&gt;<span class="w"> </span>USERNAME@<span class="o">[</span>aicr-login-hostname<span class="o">]</span>:&lt;path-to-aicr-dir&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scp<span class="w"> </span>&lt;local-file-name&gt;<span class="w"> </span>USERNAME@login.aicr.ai:&lt;path-to-aicr-dir&gt;
 </span></code></pre></div>
-<!-- TODO: Update with Login node hostname -->
-
 <p>To transfer a file from AICR to your computer:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>USERNAME@<span class="o">[</span>aicr-login-hostname<span class="o">]</span>:&lt;path-to-aicr-dir&gt;/&lt;file-name&gt;<span class="w"> </span>&lt;path-to-local-dest&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>USERNAME@login.aicr.ai:&lt;path-to-aicr-dir&gt;/&lt;file-name&gt;<span class="w"> </span>&lt;path-to-local-dest&gt;
 </span></code></pre></div>
-<!-- TODO: Update with Login node hostname -->
-
 <p>Similar to <code>cp</code>, use the <code>-r</code> flag to copy over an entire directory and its contents. </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>-r<span class="w"> </span>&lt;local-dir-name&gt;<span class="w"> </span>USERNAME@<span class="o">[</span>aicr-login-hostname<span class="o">]</span>:&lt;path-to-aicr-dir&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>-r<span class="w"> </span>&lt;local-dir-name&gt;<span class="w"> </span>USERNAME@login.aicr.ai:&lt;path-to-aicr-dir&gt;
 </span></code></pre></div>
-<!-- TODO: Update with Login node hostname -->
-
 <p>The <code>rsync</code> command can be used similarly and has some additional flags you can use. It also can be used to transfer only new or modified files to the destination, which makes it easy to keep a directory in "sync".</p>
 <h2 id="running-your-first-job">Running your First Job<a class="headerlink" href="#running-your-first-job" title="Permanent link">&para;</a></h2>
 <p>At this point you may want to do a test-run of your code. You always
@@ -1502,10 +1492,8 @@ to run on the system. If your test code is serial and runs okay on a
 moderate personal laptop or desktop you can request an interactive
 session to run your code in by executing the command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Requesting four cores and one RTX-6000 GPU for an interactive job for 1 hour</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>salloc<span class="w"> </span>-t<span class="w"> </span><span class="m">01</span>:00:00<span class="w"> </span>-p<span class="w"> </span>rtx-devel<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>-G<span class="w"> </span><span class="m">1</span><span class="w"> </span>--qos<span class="o">=</span>interactive
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>salloc<span class="w"> </span>-t<span class="w"> </span><span class="m">01</span>:00:00<span class="w"> </span>-p<span class="w"> </span>rtx-devel<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>-G<span class="w"> </span><span class="m">1</span>
 </span></code></pre></div>
-<!-- TODO: Check salloc command -->
-
 <p>After you run this command you will be on a compute node and you can do
 a test-run of your code. This command will allocate four cores and one RTX-6000 GPUs to your
 job. If your test code needs additional cores or uses a lot of
@@ -1533,7 +1521,7 @@ memory, you should request additional resources as needed.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2026 18:18:27 UTC">May 1, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 1, 2026 18:28:39 UTC">June 1, 2026</span>
   </span>
 
     
