@@ -25,10 +25,6 @@
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>
-         <loc>https://www.mghpcc.org/logging-in/</loc>
-         <lastmod>2026-06-01</lastmod>
-    </url>
-    <url>
          <loc>https://www.mghpcc.org/request-access/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
@@ -50,6 +46,10 @@
     </url>
     <url>
          <loc>https://www.mghpcc.org/connecting/ondemand/</loc>
+         <lastmod>2026-06-01</lastmod>
+    </url>
+    <url>
+         <loc>https://www.mghpcc.org/connecting/ssh/</loc>
          <lastmod>2026-06-01</lastmod>
     </url>
     <url>

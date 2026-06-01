@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://www.mghpcc.org/running-jobs/monitoring/">
+        <link rel="canonical" href="https://www.mghpcc.org/connecting/ssh/">
       
       
-        <link rel="prev" href="../cpu-jobs/">
+        <link rel="prev" href="../ondemand/">
       
       
-        <link rel="next" href="../../restoring-data/">
+        <link rel="next" href="../../files/overview/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Monitoring - AICR Documentation</title>
+        <title>SSH - AICR Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-and-managing-jobs" class="md-skip">
+        <a href="#ssh" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitoring
+              SSH
             
           </span>
         </div>
@@ -353,18 +353,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -385,7 +387,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -403,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../connecting/ondemand/" class="md-nav__link">
+      <a href="../ondemand/" class="md-nav__link">
         
   
   
@@ -428,10 +430,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../connecting/ssh/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -447,6 +476,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-your-ssh-keys-and-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up Your SSH Keys and Certificate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up Your SSH Keys and Certificate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#certificate-renewal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Certificate Renewal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH Config File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-can-do-on-login-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Can Do on Login Nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-compute-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting to Compute Nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -600,20 +743,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -634,7 +775,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -652,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slurm-basics/" class="md-nav__link">
+      <a href="../../running-jobs/slurm-basics/" class="md-nav__link">
         
   
   
@@ -680,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gpu-jobs/" class="md-nav__link">
+      <a href="../../running-jobs/gpu-jobs/" class="md-nav__link">
         
   
   
@@ -708,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cpu-jobs/" class="md-nav__link">
+      <a href="../../running-jobs/cpu-jobs/" class="md-nav__link">
         
   
   
@@ -733,37 +874,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Monitoring
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../running-jobs/monitoring/" class="md-nav__link">
         
   
   
@@ -779,120 +893,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#check-your-jobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check Your Jobs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#detailed-job-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Detailed Job Information
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#job-history-and-resource-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Job History and Resource Usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Job History and Resource Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-sacct-format-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful sacct Format Fields
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#partition-and-node-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partition and Node Status
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cancel-a-job" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cancel a Job
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-gpu-utilization-in-a-running-job" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checking GPU Utilization in a Running Job
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1149,10 +1149,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#check-your-jobs" class="md-nav__link">
+  <a href="#connecting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Check Your Jobs
+        Connecting
       
     </span>
   </a>
@@ -1160,33 +1160,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-job-information" class="md-nav__link">
+  <a href="#setting-up-your-ssh-keys-and-certificate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Detailed Job Information
+        Setting Up Your SSH Keys and Certificate
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#job-history-and-resource-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Job History and Resource Usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Job History and Resource Usage">
+    <nav class="md-nav" aria-label="Setting Up Your SSH Keys and Certificate">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#useful-sacct-format-fields" class="md-nav__link">
+  <a href="#certificate-renewal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful sacct Format Fields
+        Certificate Renewal
       
     </span>
   </a>
@@ -1199,10 +1188,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#partition-and-node-status" class="md-nav__link">
+  <a href="#ssh-config-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Partition and Node Status
+        SSH Config File
       
     </span>
   </a>
@@ -1210,10 +1199,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cancel-a-job" class="md-nav__link">
+  <a href="#what-you-can-do-on-login-nodes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cancel a Job
+        What You Can Do on Login Nodes
       
     </span>
   </a>
@@ -1221,10 +1210,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checking-gpu-utilization-in-a-running-job" class="md-nav__link">
+  <a href="#connecting-to-compute-nodes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checking GPU Utilization in a Running Job
+        Connecting to Compute Nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
       
     </span>
   </a>
@@ -1285,10 +1285,10 @@
     
     
       <li class="md-path__item">
-        <a href="../slurm-basics/" class="md-path__link">
+        <a href="../ondemand/" class="md-path__link">
           
   <span class="md-ellipsis">
-    Running Jobs
+    Logging In
   </span>
 
         </a>
@@ -1311,131 +1311,143 @@
       
       
       
-        <a href="../../tags/#tag:running-jobs" class="md-tag">Running Jobs</a>
+        <a href="../../tags/#tag:getting-started" class="md-tag">Getting Started</a>
       
     
       
       
       
       
-        <a href="../../tags/#tag:slurm" class="md-tag">Slurm</a>
+        <a href="../../tags/#tag:ssh" class="md-tag">SSH</a>
       
     
   </nav>
 
 
 
-<h1 id="monitoring-and-managing-jobs">Monitoring and Managing Jobs<a class="headerlink" href="#monitoring-and-managing-jobs" title="Permanent link">&para;</a></h1>
-<h2 id="check-your-jobs">Check Your Jobs<a class="headerlink" href="#check-your-jobs" title="Permanent link">&para;</a></h2>
-<p>View your running and pending jobs:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>squeue<span class="w"> </span>--me
+<h1 id="ssh">SSH<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h1>
+<p>SSH (Secure Shell) is the standard way to access AICR from a terminal. If you prefer a browser-based interface with no setup, see <a href="../ondemand/">OnDemand</a> instead.</p>
+<p>AICR uses <strong>SSH certificate authentication</strong>. When your account is created, you receive a short-lived SSH certificate signed by AICR's Certificate Authority (CA). There is no separate AICR password. Your certificate is your credential.</p>
+<p>You can download a new certificate through the AICR OnDemand portal when your account is created or your current certificate approaches expiration.</p>
+<h2 id="connecting">Connecting<a class="headerlink" href="#connecting" title="Permanent link">&para;</a></h2>
+<p>If this is your first time logging in through SSH, see below on how to <a href="#setting-up-your-ssh-keys-and-certificate">set up your certificate and ssh keys</a>. Once your keys are set up, open a terminal on your local computer and run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>ssh<span class="w"> </span>USERNAME@login.aicr.ai
 </span></code></pre></div>
-<p>View jobs on a specific partition:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>squeue<span class="w"> </span>-p<span class="w"> </span>rtx-batch
-</span></code></pre></div>
-<h2 id="detailed-job-information">Detailed Job Information<a class="headerlink" href="#detailed-job-information" title="Permanent link">&para;</a></h2>
-<p>Inspect a running or pending job:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>JOBID
-</span></code></pre></div>
-<p>This shows the full job configuration: allocated nodes, resources, time limits, working directory, and more.</p>
-<h2 id="job-history-and-resource-usage">Job History and Resource Usage<a class="headerlink" href="#job-history-and-resource-usage" title="Permanent link">&para;</a></h2>
-<p>After a job completes, use <code>sacct</code> to see what resources it actually used:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sacct<span class="w"> </span>-j<span class="w"> </span>JOBID<span class="w"> </span>--format<span class="o">=</span>JobID,JobName,Partition,Elapsed,MaxRSS,State
-</span></code></pre></div>
-<p>Check your recent job history:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sacct<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>--starttime<span class="o">=</span>now-7days<span class="w"> </span>--format<span class="o">=</span>JobID,JobName,Partition,Elapsed,State,ExitCode
-</span></code></pre></div>
+<p>Replace <code>USERNAME</code> with your AICR username. This follows the format <code>institutionalusername_institutioncode</code> (e.g., <code>jsmith_mit</code>) and was provided when your account was created.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Use <code>sacct</code> to check whether your jobs are using the resources you requested. If <code>MaxRSS</code> is much lower than your <code>--mem</code> request, reduce memory in future jobs to improve your fairshare.</p>
+<p>If this is your first time connecting, you will see a host key verification prompt. Type <code>yes</code> to continue. This only happens once per machine.</p>
 </div>
-<h3 id="useful-sacct-format-fields">Useful sacct Format Fields<a class="headerlink" href="#useful-sacct-format-fields" title="Permanent link">&para;</a></h3>
+<h2 id="setting-up-your-ssh-keys-and-certificate">Setting Up Your SSH Keys and Certificate<a class="headerlink" href="#setting-up-your-ssh-keys-and-certificate" title="Permanent link">&para;</a></h2>
+<p>When your AICR account is created, four files will be generated for you:</p>
+<ul>
+<li><code>id_ed25519_aicr</code>: your private key (passphrase-protected)</li>
+<li><code>id_ed25519_aicr.pub</code>: your public key</li>
+<li><code>id_ed25519_aicr-cert.pub</code>: your CA-signed certificate</li>
+<li><code>.passphrase</code>: initial passphrase for your private key</li>
+</ul>
+<p>Retrieve these files from <a href="https://ood.aicr.ai">https://ood.aicr.ai</a> (see the <a href="../ondemand/">OnDemand page</a> for more information on how to log in). Once you've logged in, go to the File Browser (Files -&gt; Home Directory). Download the <code>aicr_keys</code> folder by clicking on the <code>...</code> icon and selecting "Download", or check the box next to the folder icon and click the "Download" button at the top.</p>
+<p>Unzip the downloaded folder and place each of these files in your <code>~/.ssh/</code> directory and set the correct permissions. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS / Linux</label><label for="__tabbed_1_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/id_ed25519_aicr
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.ssh/id_ed25519_aicr.pub
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.ssh/id_ed25519_aicr-cert.pub
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><strong>Windows Terminal / PowerShell</strong>: Place the files in <code>C:\Users\YOUR_WINDOWS_USER\.ssh\</code>. SSH is built in — use the same <code>ssh</code> command from PowerShell or Windows Terminal.</p>
+<p><strong>WSL</strong>: Place the files in <code>~/.ssh/</code> inside your WSL home directory (e.g., <code>/home/YOUR_LINUX_USER/.ssh/</code>). If you downloaded the files to Windows, copy them from <code>/mnt/c/Users/YOUR_WINDOWS_USER/Downloads/</code> into <code>~/.ssh/</code> in WSL. Then set permissions the same way as macOS/Linux:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/id_ed25519_aicr
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.ssh/id_ed25519_aicr.pub
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.ssh/id_ed25519_aicr-cert.pub
+</span></code></pre></div>
+<p>Use the <code>ssh</code> command from your WSL terminal as you would on Linux.</p>
+</div>
+</div>
+</div>
+<p>Once the files are in place and permissions are set, update your passphrase with the following command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh-keygen<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_ed25519_aicr
+</span></code></pre></div>
+<p>Note that your initial passphrase is in the <code>.passphrase</code> file in the <code>aicr_keys</code> directory that you downloaded from OnDemand. Choose a passphrase that you will remember. If you forget your passphrase you can download the <code>aicr_keys</code> directory again and repeat this process.</p>
+<h3 id="certificate-renewal">Certificate Renewal<a class="headerlink" href="#certificate-renewal" title="Permanent link">&para;</a></h3>
+<p>Certificates have a limited validity period. When your certificate approaches expiration, regenerate it through the AICR OnDemand portal — log in, navigate to the SSH Certificate app, and download a new certificate. Replace your existing certificate with this new one.</p>
+<h2 id="ssh-config-file">SSH Config File<a class="headerlink" href="#ssh-config-file" title="Permanent link">&para;</a></h2>
+<p>For convenience, add AICR to your SSH config file (<code>~/.ssh/config</code>):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Host aicr
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    HostName login.aicr.ai
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    User AICR_USERNAME
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    IdentityFile ~/.ssh/id_ed25519_aicr
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    CertificateFile ~/.ssh/id_ed25519_aicr-cert.pub
+</span></code></pre></div>
+<p>Then connect with:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>ssh<span class="w"> </span>aicr
+</span></code></pre></div>
+<h2 id="what-you-can-do-on-login-nodes">What You Can Do on Login Nodes<a class="headerlink" href="#what-you-can-do-on-login-nodes" title="Permanent link">&para;</a></h2>
+<p>Login nodes are shared and have strict resource limits:</p>
+<ul>
+<li><strong>4 CPU cores</strong> and <strong>8 GB memory</strong> per user</li>
+<li>Processes exceeding these limits will be terminated</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Do not run computation on login nodes. Use them for:</p>
+<ul>
+<li>Editing code and files</li>
+<li>Installing packages and managing environments</li>
+<li>Submitting and monitoring jobs</li>
+<li>Small file transfers</li>
+</ul>
+<p>For computation, submit a job with <code>sbatch</code> or request an interactive session with <code>salloc</code>. See <a href="../../running-jobs/slurm-basics/">Slurm Basics</a>.</p>
+</div>
+<h2 id="connecting-to-compute-nodes">Connecting to Compute Nodes<a class="headerlink" href="#connecting-to-compute-nodes" title="Permanent link">&para;</a></h2>
+<p>You cannot SSH directly to a compute node. Instead:</p>
+<ol>
+<li>Request resources <a href="../../running-jobs/slurm-basics/#interactive-jobs">through Slurm</a></li>
+<li>Slurm places you on a compute node with the requested resources</li>
+<li>When done, type <code>exit</code> to release the resources</li>
+</ol>
+<p>If you have a running job, you can SSH to the assigned node to check on it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>squeue<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w">          </span><span class="c1"># find your node name</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>$<span class="w"> </span>ssh<span class="w"> </span>NODE_NAME<span class="w">             </span><span class="c1"># connect to the node (only works with an active job)</span>
+</span></code></pre></div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>Problem</th>
+<th>Solution</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>JobID</code></td>
-<td>Job identifier</td>
+<td><code>Permission denied (publickey)</code></td>
+<td>Your certificate may be expired or missing. Re-download it through the OnDemand portal, or contact your institution's <a href="../../getting-help/">RC team</a>. Check file permissions: private key should be <code>600</code> (see <a href="#setting-up-your-ssh-keys-and-certificate">above</a>).</td>
 </tr>
 <tr>
-<td><code>JobName</code></td>
-<td>Job name</td>
+<td><code>Connection timed out</code></td>
+<td>Check your network connection. AICR login nodes are publicly accessible — no VPN is required. If the problem persists, check your local firewall or try from a different network.</td>
 </tr>
 <tr>
-<td><code>Partition</code></td>
-<td>Partition used</td>
+<td><code>Host key verification failed</code></td>
+<td>The host key has changed. Remove the old entry: <code>ssh-keygen -R login.aicr.ai</code> then reconnect.</td>
 </tr>
 <tr>
-<td><code>Elapsed</code></td>
-<td>Actual wall time</td>
-</tr>
-<tr>
-<td><code>MaxRSS</code></td>
-<td>Peak memory usage</td>
-</tr>
-<tr>
-<td><code>State</code></td>
-<td>Final job state (COMPLETED, FAILED, TIMEOUT, etc.)</td>
-</tr>
-<tr>
-<td><code>ExitCode</code></td>
-<td>Exit code (0 = success)</td>
-</tr>
-<tr>
-<td><code>AllocCPUS</code></td>
-<td>CPUs allocated</td>
-</tr>
-<tr>
-<td><code>AllocTRES</code></td>
-<td>All resources allocated (CPUs, memory, GPUs)</td>
+<td>Connection drops frequently</td>
+<td>Add <code>ServerAliveInterval 60</code> to your SSH config for AICR.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="partition-and-node-status">Partition and Node Status<a class="headerlink" href="#partition-and-node-status" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sinfo
-</span></code></pre></div>
-<p>See which nodes are available, allocated, or down. Useful for checking whether your target partition has capacity.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sinfo<span class="w"> </span>-p<span class="w"> </span>rtx-batch<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%N %T %G %m&quot;</span>
-</span></code></pre></div>
-<p>This shows node names, state, GPUs, and memory for a specific partition.</p>
-<h2 id="cancel-a-job">Cancel a Job<a class="headerlink" href="#cancel-a-job" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>scancel<span class="w"> </span>JOBID
-</span></code></pre></div>
-<p>Cancel all your jobs:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>scancel<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
-</span></code></pre></div>
-<p>Cancel a specific array task:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>scancel<span class="w"> </span>JOBID_TASKID
-</span></code></pre></div>
-<h2 id="checking-gpu-utilization-in-a-running-job">Checking GPU Utilization in a Running Job<a class="headerlink" href="#checking-gpu-utilization-in-a-running-job" title="Permanent link">&para;</a></h2>
-<p>If you have a running GPU job, check GPU utilization by connecting to the node:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>squeue<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w">                    </span><span class="c1"># find your node name</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ssh<span class="w"> </span>NODE_NAME<span class="w"> </span>nvidia-smi<span class="w">           </span><span class="c1"># check GPU usage (requires active job on that node)</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can only SSH to compute nodes where you have an active Slurm job.</p>
-</div>
-<!-- TODO: add Jobstats when it is is deployed and document usage
-## Jobstats
-
-[Jobstats](https://princetonuniversity.github.io/jobstats/) is available for reviewing job performance — CPU, memory, and GPU utilization for completed and in-progress jobs. This is useful for identifying underutilized resources and right-sizing future requests.
-
- -->
-
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../slurm-basics/">Slurm Basics</a> — submitting jobs</li>
+<li><a href="../ondemand/">OnDemand Web Portal</a> — browser-based access, no SSH setup needed</li>
+<li><a href="../../getting-started/">Getting Started Tutorial</a> — first steps on AICR</li>
 </ul>
-<!-- TODO: Adding later
-- [Job Troubleshooting](troubleshooting.md) — diagnosing failures
-- [Efficient Resource Usage](../best-practices/resource-usage.md) — right-sizing requests
- -->
+<!-- 
+TODO: remove comment when VSCode instructions are added.
+- [VS Code Remote](vscode.md) — IDE-based development over SSH
+-->
 
 
 
@@ -1456,7 +1468,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2026 15:54:10 UTC">May 1, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 1, 2026 19:29:23 UTC">June 1, 2026</span>
   </span>
 
     
