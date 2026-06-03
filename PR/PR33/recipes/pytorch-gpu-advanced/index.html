@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://www.mghpcc.org/recipes/pytorch-gpu-advanced/">
       
       
+        <link rel="prev" href="../pytorch-gpu/">
+      
+      
+        <link rel="next" href="../../getting-help/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Running PyTorch on GPUs - Advanced - AICR Documentation</title>
+        <title>PyTorch on GPUs - II - AICR Documentation</title>
       
     
     
@@ -110,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Running PyTorch on GPUs - Advanced
+              PyTorch on GPUs - II
             
           </span>
         </div>
@@ -762,18 +766,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -794,7 +800,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -847,7 +853,7 @@
   <span class="md-ellipsis">
     
   
-    PyTorch on GPUs
+    PyTorch on GPUs - I
   
 
     
@@ -856,6 +862,170 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch on GPUs - II
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch on GPUs - II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fully-sharded-data-parallelism-fsdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fully Sharded Data Parallelism (FSDP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fully Sharded Data Parallelism (FSDP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-node-multi-gpu-fsdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Node Multi-GPU FSDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hybrid-fully-sharded-data-parallel-and-tensor-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Fully Sharded Data Parallel and Tensor Parallel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hybrid Fully Sharded Data Parallel and Tensor Parallel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-node-multi-gpu-fsdp-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-node multi-GPU FSDP + TP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-node-multi-gpu-fsdp-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-node multi-GPU FSDP + TP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1135,6 +1305,46 @@
 
   
 
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../restoring-data/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Recipes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
 
               
               <article class="md-content__inner md-typeset">
