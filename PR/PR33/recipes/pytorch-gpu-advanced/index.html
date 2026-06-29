@@ -1357,12 +1357,14 @@
 <p>This recipe covers advanced topics in using PyTorch on GPUs in the AICR environment. If you haven't already, we recommend reading the <a href="../pytorch-gpu/">previous recipe on running PyTorch</a> before proceeding with this one. In this recipe, we will cover some more advanced topics related to using PyTorch on GPUs, including <a href="https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/">Fully Sharded Data Parallelism (FSDP)</a> and model parallelism.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>We have a few example scripts for this tutorial, which you can download and extract to your home directory:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>&lt;link&gt;
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>unzip<span class="w"> </span>aicr_pytorch_gpu_examples.zip
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/mghpcc/aicr-docs-edit/main/docs/scripts/pytorch_gpu/examples.zip
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>unzip<span class="w"> </span>examples.zip
 </span></code></pre></div>
-<!-- TODO: Add the actual wget command and link -->
-
-<p>Ensure you have a Python enviornment with PyTorch installed with GPU support. You can follow <a href="../pytorch-gpu/#installing-pytorch-with-gpu-support">these instructions</a> to set up your environment.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This recipe uses the partition <code>rtx-batch</code>, which has RTX PRO 6000 GPUs, for example GPU jobs. If you want to use a different partition, you can change the <code>-p</code> flag in the job scripts. Please refer to <a href="../../running-jobs/gpu-jobs/">GPU Jobs</a> for more information on choosing a partition and requesting GPUs.</p>
+</div>
+<p>Ensure you have a Python environment with PyTorch installed with GPU support. You can follow <a href="../pytorch-gpu/#installing-pytorch-with-gpu-support">these instructions</a> to set up your environment.</p>
 <h2 id="fully-sharded-data-parallelism-fsdp">Fully Sharded Data Parallelism (FSDP)<a class="headerlink" href="#fully-sharded-data-parallelism-fsdp" title="Permanent link">&para;</a></h2>
 <p>FSDP is a method for training large models that do not fit into the memory of a single GPU. It works by sharding the model across multiple GPUs and synchronizing the gradients during training. This allows you to train larger models than would be possible with data parallelism alone.</p>
 <p>We will use an <a href="https://github.com/pytorch/examples/tree/main/mnist">example from the PyTorch examples repository</a> to train a convolutional neural network (CNN) with the MNIST dataset. First, we will train using a single GPU, and then we will show how to use FSDP to train the same model on multiple GPUs.</p>
@@ -1375,7 +1377,7 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">#SBATCH -N 1</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">#SBATCH -n 1</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">#SBATCH --mem=20GB</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">#SBATCH -G 1  </span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">#SBATCH -G 1</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>module<span class="w"> </span>load<span class="w"> </span>conda
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>my_torch_env
@@ -1401,14 +1403,14 @@
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>python<span class="w"> </span>FSDP_mnist.py
 </span></code></pre></div>
 <p>You can submit this job with <code>sbatch submit_fsdp_mnist.sh</code> and monitor it with <code>squeue --me</code>.</p>
-<p>In this case, we are requesting 2 GPUs and 2 tasks, which will allow us to use FSDP to shard the model across the two GPUs. The model is split into 2 shards, each stored on a different GPU, and the training happens on 2 batches of data simultaneously.</p>
+<p>In this case, we are requesting 2 GPUs and 1 task, which will allow us to use FSDP to shard the model across the two GPUs. The model is split into 2 shards, each stored on a different GPU, and the training happens on 2 batches of data simultaneously.</p>
 <h2 id="hybrid-fully-sharded-data-parallel-and-tensor-parallel">Hybrid Fully Sharded Data Parallel and Tensor Parallel<a class="headerlink" href="#hybrid-fully-sharded-data-parallel-and-tensor-parallel" title="Permanent link">&para;</a></h2>
 <p>FSDP does not gain additional speedup beyond the data parallel framework. To further speed up training, some approaches are based on model parallelism, which not only splits the model onto multiple GPUs but also accelerates the training process with parallel sharded computations.</p>
 <p>There are various schemes of model parallelism, such as pipeline parallel (PP) and tensor parallel (TP). Often, model parallelism can be combined with data parallelism to further speed up training. In this section, we will cover such hybrid approaches.</p>
 <p>We will use an example that implements FSDP + TP on LLAMA2 (Large Language Model Meta AI 2). Refer to the description of this example <a href="https://pytorch.org/tutorials/intermediate/TP_tutorial.html">here</a>. We will be using the following scripts for this section: <code>fsdp_tp_example.py</code>, <code>llama2_model.py</code>, and <code>log_utils.py</code>.</p>
 <h3 id="single-node-multi-gpu-fsdp-tp">Single-node multi-GPU FSDP + TP<a class="headerlink" href="#single-node-multi-gpu-fsdp-tp" title="Permanent link">&para;</a></h3>
 <p>First, we will run the example on multiple GPUs on a single node.</p>
-<p>In the script <code>fsdp_tp_example.py</code>, the TP size is set to 2. The total number of GPUs should be equal to a multiple of the TP size, and then the FSDP size is equal to the number of GPUs divided by the TP size.</p>
+<p>In the script <code>fsdp_tp_example.py</code>, the TP size is set to 2. The total number of GPUs should be a multiple of the TP size, and then the FSDP size is equal to the number of GPUs divided by the TP size.</p>
 <p>Prepare the following job script to run the example on 4 GPUs:</p>
 <div class="language-bash highlight"><span class="filename">submit_fsdp_tp.sh</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/bin/bash</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
@@ -1424,14 +1426,14 @@
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>module<span class="w"> </span>load<span class="w"> </span>conda
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>my_torch_env
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>torchrun<span class="w"> </span>--nnodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--nproc_per_node<span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">     </span>--rdzv_id<span class="o">=</span><span class="nv">$SLURM_JOB_ID</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">     </span>--rdzv_endpoint<span class="o">=</span><span class="s2">&quot;localhost:1234&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>torchrun<span class="w"> </span>--nnodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--nproc-per-node<span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">     </span>--rdzv-id<span class="o">=</span><span class="nv">$SLURM_JOB_ID</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">     </span>--rdzv-endpoint<span class="o">=</span><span class="s2">&quot;localhost:1234&quot;</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">     </span>fsdp_tp_example.py
 </span></code></pre></div>
 <p>Submit this job with <code>sbatch submit_fsdp_tp.sh</code> and monitor it with <code>squeue --me</code>.</p>
-<p>With the flags <code>-N 1</code> and <code>-n 4</code>, the <code>torchrun</code> command will run the program on 4 GPUs within one node. The training process happens on 2 batches of data with FSDP, and the model is trained with TP sharded computation on 2 GPUs for each batch of data.</p>
-<p>The flags with <code>rdzv</code> (rendezvous protocol) are required by <code>torchrun</code> to coordinate multiple processes. The flag <code>--rdzv-id=$SLURM_JOB_ID</code> sets the rendezvous ID to the Slurm job ID, but it can be any random number. The flag <code>--rdzv-endpoint="localhost:1234"</code> is used to specify the host and port. Use <code>localhost</code> when there is only one node. The part can be any 4- or 5-digit number larger than 1024.</p>
+<p>With the flags <code>-N 1</code> and <code>-G 4</code>, the <code>torchrun</code> command will run the program on 4 GPUs within one node. The training process happens on 2 batches of data with FSDP, and the model is trained with TP sharded computation on 2 GPUs for each batch of data.</p>
+<p>The flags with <code>rdzv</code> (rendezvous protocol) are required by <code>torchrun</code> to coordinate multiple processes. The flag <code>--rdzv-id=$SLURM_JOB_ID</code> sets the rendezvous ID to the Slurm job ID, but it can be any random number. The flag <code>--rdzv-endpoint="localhost:1234"</code> is used to specify the host and port. Use <code>localhost</code> when there is only one node. The port can be any 4- or 5-digit number larger than 1024.</p>
 <h3 id="multi-node-multi-gpu-fsdp-tp">Multi-node multi-GPU FSDP + TP<a class="headerlink" href="#multi-node-multi-gpu-fsdp-tp" title="Permanent link">&para;</a></h3>
 <p>Now let's run the same example across multiple nodes. We will use 2 nodes with 4 GPUs each, for a total of 8 GPUs.</p>
 <p>Prepare the following job script to run the example on 2 nodes with 4 GPUs each:</p>
@@ -1442,7 +1444,7 @@
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">#SBATCH -N 2</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">#SBATCH --ntasks-per-node=1</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">#SBATCH --cpus-per-task=4</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">#SBATCH --gpus-per-node=4 </span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">#SBATCH --gpus-per-node=4</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">#SBATCH --mem=30GB</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>module<span class="w"> </span>load<span class="w"> </span>conda
@@ -1465,7 +1467,7 @@
 <p>The training process happens on 4 batches of data with FSDP, and the model is trained with TP sharded computation on 2 GPUs for each batch of data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The NVIDIA Collective Communications Library (NCCL) is set as the backend in all of the PyTorch programs in this tutorial so that the communication between GPUs within one node benefits from the high bandwidth of NVLinks, and the communication between GPUs across nodes benefits from the bandwidth of the Infiniband network.</p>
+<p>The NVIDIA Collective Communications Library (NCCL) is set as the backend in all of the PyTorch programs in this tutorial so that the communication between GPUs within one node benefits from the high bandwidth of NVLinks, and the communication between GPUs across nodes benefits from the bandwidth of the InfiniBand network.</p>
 <p>The intra-node GPU-GPU communication speed is much faster than inter-node. The communication overhead of TP is much larger than that of FSDP. The topology of GPU communication is set up (in the code <code>fsdp_tp_example.py</code>) in a way that TP communication is intra-node and FSDP communication is inter-node, so that the usage of the network bandwidth is optimized.</p>
 </div>
 
@@ -1488,7 +1490,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 3, 2026 19:14:17 UTC">June 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 29, 2026 19:16:33 UTC">June 29, 2026</span>
   </span>
 
     
