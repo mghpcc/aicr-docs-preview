@@ -2013,7 +2013,7 @@
 </tbody>
 </table>
 <h2 id="preemption">Preemption<a class="headerlink" href="#preemption" title="Permanent link">&para;</a></h2>
-<p>The <code>preemptable</code> partition spans 46 nodes — the RTX batch nodes, plus the B200 batch and whole-node nodes. It gives you access to capacity that is otherwise committed to other partitions, at the cost of your job being interrupted when that capacity is needed. It also applies no per-user GPU cap, unlike the 32-GPU limit on <code>rtx-batch</code> and <code>b200-batch</code>. Work here counts toward your usage at the same rate as the equivalent batch partition.</p>
+<p>The <code>preemptable</code> partition spans 46 nodes — the RTX batch nodes, plus the B200 batch and whole-node nodes. The CPU nodes are not part of it, so jobs in the <code>cpu</code> partition are never preempted. It gives you access to capacity that is otherwise committed to other partitions, at the cost of your job being interrupted when that capacity is needed. It also applies no per-user GPU cap, unlike the 32-GPU limit on <code>rtx-batch</code> and <code>b200-batch</code>. Work here counts toward your usage at the same rate as the equivalent batch partition.</p>
 <p>Jobs in <code>preemptable</code> run at the lowest priority on the cluster. When a job in any other partition needs a node your job is running on, your job is preempted.</p>
 <div class="admonition warning">
 <p class="admonition-title">Jobs in <code>preemptable</code> can be interrupted at any time</p>
@@ -2153,7 +2153,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 15, 2026 19:06:12 UTC">September 15, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 18, 2026 20:40:16 UTC">September 18, 2026</span>
   </span>
 
     
