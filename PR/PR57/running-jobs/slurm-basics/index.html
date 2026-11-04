@@ -2170,18 +2170,20 @@
 <h3 id="interaction-with-preemption">Interaction with preemption<a class="headerlink" href="#interaction-with-preemption" title="Permanent link">&para;</a></h3>
 <p>These nodes are also part of the <code>preemptable</code> partition, so a whole-node job will preempt any <code>preemptable</code> work running on the node it is assigned.</p>
 <h2 id="reservations">Reservations<a class="headerlink" href="#reservations" title="Permanent link">&para;</a></h2>
-<div class="admonition important">
+<div class="admonition warning">
 <p class="admonition-title">Reservations are arranged through your institution</p>
 </div>
-<p>AICR does not take reservation requests from individual users. Your institution decides which projects receive a reservation and requests it on their behalf at least one week in advance. To ask about one, contact your institution's <a href="../../getting-help/#institutional-support-teams">support team</a>.</p>
+<p>AICR does not take reservation requests from individual users. Your institution decides which projects receive a reservation and requests it on their behalf at least one week in advance.</p>
 <p>A reservation holds up to three whole B200 nodes for a single project for up to one week. Jobs in a reservation have no per-job time limit. Reservations are a temporary offering while AICR develops a longer-term allocation framework, and the terms below may change.</p>
 <p>Try <a href="#whole-node-b200-jobs-trial"><code>b200-fullnode</code></a> first. It needs no request and suits work that fits in 24-hour runs or can checkpoint and resubmit. A reservation is for work that needs whole nodes continuously for several days.</p>
-<ul>
-<li><strong>Use it or lose it.</strong> If no job is running in the reservation within 2 hours of its start, the reservation is cancelled and the nodes return to general use.</li>
-<li><strong>B200 only.</strong> Reservations are not available on RTX nodes.</li>
-<li><strong>The <code>temp-reservation</code> partition.</strong> Reserved jobs run in this partition. It can be used only with a reservation arranged through your institution.</li>
-</ul>
+<p><strong>Use it or lose it.</strong> If no job is running in the reservation within 2 hours of its start, the reservation is cancelled and the nodes return to general use.</p>
+<p><strong>B200 only.</strong> Reservations are not available on RTX nodes.</p>
+<p><strong>The <code>temp-reservation</code> partition.</strong> Reserved jobs run in this partition. It can be used only with a reservation arranged through your institution.</p>
 <p>When your reservation is set up, your institution's support team will send instructions for submitting jobs to it.</p>
+<div class="admonition info">
+<p class="admonition-title">Getting help with reservations</p>
+<p>Contact your institution's <a href="../../getting-help/#institutional-support-teams">support team</a> if you have questions about reservations, would like to request a reservation, or need help with an existing reservation.</p>
+</div>
 <h2 id="fairshare-and-priority">Fairshare and Priority<a class="headerlink" href="#fairshare-and-priority" title="Permanent link">&para;</a></h2>
 <p>AICR allocates resources fairly using a three-level hierarchy: <strong>Institution → Project → User</strong>. Your priority depends on recent usage relative to your institution's and project's allocation. Specify <code>--account</code> correctly and Slurm handles the rest.</p>
 <h3 id="slurm-accounts">Slurm Accounts<a class="headerlink" href="#slurm-accounts" title="Permanent link">&para;</a></h3>
@@ -2271,7 +2273,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 4, 2026 14:14:52 UTC">November 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 4, 2026 14:44:00 UTC">November 4, 2026</span>
   </span>
 
     
